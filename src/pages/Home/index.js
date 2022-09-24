@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <main className="content">
       <div className="content__container">
-        <div className="content__header">
+        <div className="content__info">
           <h2>Cryptocurrency Prices by Market Cap</h2>
           <p>
             The global cryptocurrency market cap today is $1.08 Trillion, a 5.6%

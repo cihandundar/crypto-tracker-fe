@@ -1,0 +1,26 @@
+.content {
+  &__container {
+    max-width: $lg-width;
+    margin: 0 auto;
+  }
+  &__info {
+    margin-bottom: 3.1rem;
+    > h2 {
+      margin-bottom: 0.6rem;
+    }
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    &__left {
+      display: flex;
+    }
+    &__list {
+      display: flex;
+    }
+    &__item {
+      width: 8.1rem;
+      text-align: right;
+    }
+  }
+}
