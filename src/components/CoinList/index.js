@@ -4,6 +4,25 @@ import axios from "axios";
 const CoinList = () => {
   const [coin, setCoin] = useState([]);
 
+  const titleList = [
+    {
+      id: 7,
+      details: "Price",
+    },
+    {
+      id: 9,
+      details: "24h",
+    },
+    {
+      id: 10,
+      details: "24h Volume",
+    },
+    {
+      id: 11,
+      details: "Mkt Cap",
+    },
+  ];
+
   useEffect(() => {
     axios
       .get(
@@ -24,6 +43,19 @@ const CoinList = () => {
             </p>
           </div>
         </div>
+        <header className="section__header">
+          <div className="section__header__left">
+            <span>#</span>
+            <p>Coin</p>
+          </div>
+          <ul className="section__header__list">
+            {titleList.map((list) => (
+              <li key={list.id} className="section__header__item">
+                {list.details}
+              </li>
+            ))}
+          </ul>
+        </header>
       </section>
     </main>
   );
