@@ -4,23 +4,40 @@
     margin: 0 auto;
   }
   &__info {
-    margin-bottom: 3.1rem;
+    padding-bottom: 3.1rem;
+    border-bottom: 0.2px solid $border-color;
     > h2 {
       margin-bottom: 0.6rem;
     }
   }
   &__title {
+    height: 3.75rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: $background-white;
     &__left {
       display: flex;
+      align-items: center;
+      > span {
+        margin-right: 1.5rem;
+      }
+      > p {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+        font-weight: bold;
+      }
     }
     &__list {
       display: flex;
     }
     &__item {
-      width: 8.1rem;
+      width: 10rem;
       text-align: right;
+      font-weight: bold;
+      font-size: 0.8rem;
     }
   }
 }

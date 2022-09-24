@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const CoinList = ({ item }) => {
   return (
     <Link to={item.id}>
-      <h2>{item.id}</h2>
+      <div className="coinlist">
+        <h3>{item.id}</h3>
+      </div>
     </Link>
   );
 };

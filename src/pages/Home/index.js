@@ -47,13 +47,13 @@ const Home = () => {
             <span>#</span>
             <p>Coin</p>
           </div>
-          <div className="content__title__list">
+          <ul className="content__title__list">
             {titleList.map((list) => (
               <li key={list.id} className="content__title__item">
                 {list.details}
               </li>
             ))}
-          </div>
+          </ul>
         </div>
         {coin.map((item) => (
           <CoinList key={item.id} item={item} />
