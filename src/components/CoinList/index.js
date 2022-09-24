@@ -1,7 +1,11 @@
 import React from "react";
 
 const CoinList = () => {
-  return <div>CoinList</div>;
+  return (
+    <main className="main">
+      <section className="main__section"></section>
+    </main>
+  );
 };
 
 export default CoinList;

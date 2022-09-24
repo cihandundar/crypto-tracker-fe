@@ -1,10 +1,11 @@
 import React from "react";
-import { Navbar } from "components/";
+import { CoinList, Navbar } from "components/";
 
 const Home = () => {
   return (
     <React.Fragment>
       <Navbar />
+      <CoinList />
     </React.Fragment>
   );
 };
