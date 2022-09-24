@@ -3,6 +3,9 @@
   &__container {
     max-width: $lg-width;
     margin: 0 auto;
+    @include breakpoint(lg) {
+      max-width: 900px;
+    }
   }
 }
 
