@@ -22,12 +22,12 @@
       display: flex;
       align-items: center;
       > span {
-        margin-right: 1.5rem;
+        margin-right: 2.5rem;
       }
       > p {
         font-size: 0.8rem;
         padding-left: 0.5rem;
-        font-weight: bold;
+        font-weight: $font-bold;
       }
     }
     &__list {
@@ -36,7 +36,7 @@
     &__item {
       width: 10rem;
       text-align: right;
-      font-weight: bold;
+      font-weight: $font-bold;
       font-size: 0.8rem;
     }
   }
