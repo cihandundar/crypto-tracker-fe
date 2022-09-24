@@ -34,8 +34,8 @@ const CoinList = () => {
   return (
     <main className="main">
       <section className="section">
-        <div className="section__container">
-          <div className="section__title">
+        <div className="content__container">
+          <div className="content__title">
             <h2>Cryptocurrency Prices by Market Cap</h2>
             <p>
               The global cryptocurrency market cap today is $1.08 Trillion, a
@@ -43,7 +43,7 @@ const CoinList = () => {
             </p>
           </div>
         </div>
-        <header className="section__header">
+        <header className="content__header">
           <div className="section__header__left">
             <span>#</span>
             <p>Coin</p>
