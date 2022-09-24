@@ -44,13 +44,13 @@ const CoinList = () => {
           </div>
         </div>
         <header className="content__header">
-          <div className="section__header__left">
+          <div className="content__header__left">
             <span>#</span>
             <p>Coin</p>
           </div>
-          <ul className="section__header__list">
+          <ul className="content__header__list">
             {titleList.map((list) => (
-              <li key={list.id} className="section__header__item">
+              <li key={list.id} className="content__header__item">
                 {list.details}
               </li>
             ))}
