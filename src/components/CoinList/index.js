@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 const CoinList = ({ item }) => {
   return (
-    <Link to={item?.id}>
+    <Link key={item.id} to={`/coin/${item.id}`}>
       <div className="section">
         <div className="section__left">
           <AiOutlineStar />
