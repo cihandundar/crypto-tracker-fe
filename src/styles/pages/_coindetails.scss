@@ -1,4 +1,10 @@
 .details {
+  &__chart {
+    width: 900px;
+    margin: 0 auto;
+    padding-block: 30px;
+  }
+
   &__container {
     max-width: $lg-width;
     margin: 0 auto;

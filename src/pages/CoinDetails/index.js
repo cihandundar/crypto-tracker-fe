@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { HistoryChart } from "components";
 
 const CoinDetails = () => {
   const { id } = useParams();
@@ -94,6 +95,9 @@ const CoinDetails = () => {
           <article className="details__info">
             <p dangerouslySetInnerHTML={{ __html: coin?.description?.en }}></p>
           </article>
+          <div className="details__chart">
+            <HistoryChart />
+          </div>
         </div>
       </div>
     </main>
