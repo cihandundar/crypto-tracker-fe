@@ -2,17 +2,32 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { HistoryChart } from "components";
+import { HistoryChart, CoinNews } from "components";
 
 const CoinDetails = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState({});
+  const [keyword, setKeyword] = useState([]);
+  const [status, setStatus] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://api.coingecko.com/api/v3/coins/${id}`)
-      .then((response) => setCoin(response.data));
+      .then((response) => {
+        setStatus(response);
+        setCoin(response.data);
+      });
   }, [id]);
+  console.log("asdasd", status);
+  useEffect(() => {
+    if (status.status === 200) {
+      axios
+        .get(
+          `https://cryptonews-api.com/api/v1?tickers=${coin?.symbol}&items=50&page=1&token=oued9raq4kiyafxjtch4qdjmhsnnrbmwmb7wouoe`
+        )
+        .then((response) => setKeyword(response.data.data.slice(0, 6)));
+    }
+  }, [coin, status]);
 
   const detailsList = [
     {
@@ -97,6 +112,11 @@ const CoinDetails = () => {
           </article>
           <div className="details__chart">
             <HistoryChart />
+          </div>
+          <div className="details__news">
+            {keyword?.map((news) => (
+              <CoinNews key={news?.id} news={news} />
+            ))}
           </div>
         </div>
       </div>
