@@ -1,0 +1,12 @@
+.tracker__list {
+  padding-block: 2rem;
+  width: 100%;
+  border: 2px solid $border-color;
+  border-radius: 0.5rem;
+  margin-block: 2rem;
+  padding-inline: 2rem;
+  @include breakpoint(sm) {
+    overflow: hidden;
+    padding-inline: 1.25rem;
+  }
+}
