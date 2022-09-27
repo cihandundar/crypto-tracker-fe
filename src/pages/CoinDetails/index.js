@@ -23,7 +23,7 @@ const CoinDetails = () => {
     if (status.status === 200) {
       axios
         .get(
-          `https://cryptonews-api.com/api/v1?tickers=${coin?.symbol}&items=50&page=1&token=oued9raq4kiyafxjtch4qdjmhsnnrbmwmb7wouoe`
+          `https://cryptonews-api.com/api/v1?tickers=${coin?.symbol}&items=50&page=1&token=5lho08jskwfqyay6sywiorcrigdakrlemtjt64nf`
         )
         .then((response) => setKeyword(response.data.data.slice(0, 6)));
     }
