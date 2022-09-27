@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import React from "react";
-import { CoinList } from "components/";
+import { CoinList, Search, TrackerList } from "components/";
 
 const Home = () => {
   const titleList = [
@@ -22,8 +22,11 @@ const Home = () => {
       details: "Mkt Cap",
     },
   ];
-
   const [coin, setCoin] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     axios
       .get(
@@ -32,15 +35,53 @@ const Home = () => {
       .then((response) => setCoin(response.data));
   }, []);
 
+  useEffect(() => {
+    setFilteredList(coin);
+  }, [coin]);
+
+  const addToFavorites = (id) => {
+    const isFavorite = favorites.find((favorite) => favorite.id === id);
+    if (isFavorite) {
+      setFavorites(favorites.filter((favorite) => favorite.id !== id));
+    } else {
+      const newFavorite = coin.find((coin) => coin.id === id);
+      setFavorites([...favorites, newFavorite]);
+    }
+  };
+
+  const filterCoins = (e) => {
+    const coinData = coin?.filter(
+      (obj) => obj.name?.toLowerCase().indexOf(e.toLowerCase()) > -1
+    );
+
+    setFilteredList(coinData);
+    setSearch(e);
+  };
+  console.log(filteredList);
   return (
     <main className="content">
       <div className="content__container">
         <div className="content__info">
-          <h2>Cryptocurrency Prices by Market Cap</h2>
-          <p>
-            The global cryptocurrency market cap today is $1.08 Trillion, a 5.6%
-            change in the last 24 hours.
-          </p>
+          <div>
+            <h2>Cryptocurrency Prices by Market Cap</h2>
+            <p>
+              The global cryptocurrency market cap today is $1.08 Trillion, a
+              5.6% change in the last 24 hours.
+            </p>
+          </div>
+          <div className="content__input">
+            <Search
+              value={search}
+              onChange={(e) => filterCoins(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="content__tracker">
+          <TrackerList
+            coin={coin}
+            favorites={favorites}
+            titleList={titleList}
+          />
         </div>
         <div className="content__title">
           <div className="content__title__left">
@@ -55,9 +96,11 @@ const Home = () => {
             ))}
           </ul>
         </div>
-        {coin.map((item) => (
-          <CoinList key={item.id} item={item} />
-        ))}
+        <div className="content__scroll">
+          {filteredList.map((item) => (
+            <CoinList key={item.id} item={item} addFavorites={addToFavorites} />
+          ))}
+        </div>
       </div>
     </main>
   );
