@@ -18,7 +18,7 @@ const CoinDetails = () => {
         setCoin(response.data);
       });
   }, [id]);
-  console.log("asdasd", status);
+
   useEffect(() => {
     if (status.status === 200) {
       axios
