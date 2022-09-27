@@ -2,7 +2,6 @@ import CoinList from "components/CoinList";
 import React from "react";
 
 const TrackerList = ({ favorites, titleList }) => {
-  console.log(favorites);
   return (
     <section className="tracker__list">
       {favorites.length > 0 ? (

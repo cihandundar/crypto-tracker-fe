@@ -1,7 +1,6 @@
 import React from "react";
 
 const CoinNews = ({ news }) => {
-  console.log(news);
   return (
     <a
       href={news?.news_url}

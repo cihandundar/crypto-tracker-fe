@@ -57,7 +57,7 @@ const Home = () => {
     setFilteredList(coinData);
     setSearch(e);
   };
-  console.log(filteredList);
+
   return (
     <main className="content">
       <div className="content__container">
