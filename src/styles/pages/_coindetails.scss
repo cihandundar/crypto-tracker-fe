@@ -1,10 +1,4 @@
 .details {
-  &__chart {
-    width: 56.25rem;
-    margin: 0 auto;
-    padding-block: 1.8rem;
-  }
-
   &__container {
     max-width: $lg-width;
     margin: 0 auto;
@@ -36,13 +30,23 @@
       text-transform: uppercase;
     }
   }
+  &__content {
+    @include breakpoint(xs) {
+      display: flex;
+    }
+  }
   &__list {
     display: flex;
     align-items: center;
-
+    @include breakpoint(xs) {
+      flex-direction: column;
+    }
     &--lower {
       margin-top: 0.3rem;
       padding-bottom: 1.5rem;
+      @include breakpoint(xs) {
+        margin-top: 0;
+      }
     }
     &__item {
       display: flex;
@@ -54,6 +58,9 @@
       border: 2px solid $border-color;
       &:not(:last-child) {
         margin-right: 0.3rem;
+        @include breakpoint(xs) {
+          margin-right: 0;
+        }
       }
 
       &--down {
@@ -67,14 +74,38 @@
   }
 
   &__info {
-    text-align: left;
     p {
       line-height: 1.5;
+      text-align: left;
+      @include breakpoint(lg) {
+        text-align: center;
+        padding-inline: 2rem;
+      }
       > a {
         color: $color-dark;
         font-weight: $font-bold;
         text-decoration: underline;
       }
+    }
+  }
+  &__chart {
+    width: 56.25rem;
+    margin: 0 auto;
+    padding-block: 1.8rem;
+    @include breakpoint(lg) {
+      padding-inline: 2rem;
+    }
+    @include breakpoint(md) {
+      width: 45rem;
+    }
+    @include breakpoint(sm) {
+      width: 100%;
+    }
+  }
+  &__news {
+    @include breakpoint(lg) {
+      padding-inline: 2rem;
+      padding-block: 2rem;
     }
   }
 }

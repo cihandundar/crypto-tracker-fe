@@ -5,12 +5,19 @@
   &__container {
     display: flex;
     text-align: left;
-
+    @include breakpoint(xs) {
+      flex-direction: column;
+    }
     &__info {
       width: 100%;
       background-color: $background-hover;
       padding-top: 1.5rem;
       padding-inline: 0.5rem;
+      @include breakpoint(md) {
+        text-align: center;
+        padding-inline: 2.5rem;
+        padding-block: 1rem;
+      }
     }
 
     &__title {
@@ -22,6 +29,10 @@
       > img {
         width: 21.8rem;
         height: 100%;
+        object-fit: cover;
+        @include breakpoint(sm) {
+          width: 100%;
+        }
       }
     }
     &__text {
@@ -41,6 +52,9 @@
       > span {
         padding-right: 0.5rem;
         color: $color-dark;
+      }
+      @include breakpoint(md) {
+        flex-direction: column;
       }
     }
     &__tickers {
