@@ -60,6 +60,27 @@ const CoinDetails = () => {
             <h2>{coin?.name}</h2>
             <span>{coin?.symbol}</span>
           </div>
+          <ul className="details__list details__list--lower ">
+            <li className="details__list--item">
+              <h4>Low 24h</h4>
+              <p className={"details__list__item details__list__item--down"}>
+                {coin?.market_data?.low_24h.usd?.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
+              </p>
+            </li>
+
+            <li className="details__list--item">
+              <h4>High 24h</h4>
+              <p className="details__list__item details__list__item--up">
+                {coin?.market_data?.high_24h.usd?.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
+              </p>
+            </li>
+          </ul>
           <div className="details__content">
             <ul className="details__list">
               {detailsList.map((info) => (
