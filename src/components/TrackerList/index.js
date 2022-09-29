@@ -1,7 +1,7 @@
 import CoinList from "components/CoinList";
 import React from "react";
 
-const TrackerList = ({ favorites, titleList }) => {
+const TrackerList = ({ favorites, titleList, addFavorites }) => {
   return (
     <section className="tracker__list">
       {favorites.length > 0 ? (
@@ -22,7 +22,7 @@ const TrackerList = ({ favorites, titleList }) => {
         <h3>Tracker List Not Found</h3>
       )}
       {favorites?.map((item) => (
-        <CoinList key={item.id} item={item} />
+        <CoinList key={item.id} item={item} addFavorites={addFavorites} />
       ))}
     </section>
   );

@@ -81,6 +81,7 @@ const Home = () => {
             coin={coin}
             favorites={favorites}
             titleList={titleList}
+            addFavorites={addToFavorites}
           />
         </div>
         <div className="content__title">
