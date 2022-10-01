@@ -53,7 +53,6 @@ const Home = () => {
     const coinData = coin?.filter(
       (obj) => obj.name?.toLowerCase().indexOf(e.toLowerCase()) > -1
     );
-
     setFilteredList(coinData);
     setSearch(e);
   };
