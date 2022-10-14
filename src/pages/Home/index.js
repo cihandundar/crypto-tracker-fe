@@ -39,6 +39,8 @@ const Home = () => {
     setFilteredList(coin);
   }, [coin]);
 
+
+
   const addToFavorites = (id) => {
     const isFavorite = favorites.find((favorite) => favorite.id === id);
     if (isFavorite) {
