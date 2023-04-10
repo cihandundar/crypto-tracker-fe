@@ -15,6 +15,7 @@
   justify-content: space-between;
   @include breakpoint(sm) {
     justify-content: center;
+    flex-direction: column;
   }
   &__logo {
     position: relative;
@@ -26,10 +27,13 @@
   &__list {
     display: flex;
     @include breakpoint(sm) {
-      display: none;
+      margin-top: 30px;
     }
   }
   &__link {
+    @include breakpoint(sm) {
+      display: none;
+    }
     &:not(:last-child) {
       margin-right: 1.8rem;
     }
@@ -41,5 +45,27 @@
         color: green;
       }
     }
+    &--favorites {
+      font-weight: bold;
+      @include breakpoint(sm) {
+        display: block;
+      }
+
+      > a {
+        display: flex;
+      }
+    }
   }
+}
+
+.length {
+  font-size: 13px;
+  background: greenyellow;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
 }
