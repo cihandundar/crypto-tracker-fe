@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "assets/images/logo.webp";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const items = useSelector((state) => state?.favorites);
   const links = [
     {
       id: 1,
@@ -48,6 +50,12 @@ const Navbar = () => {
                 <Link to={link.path}>{link.name}</Link>
               </li>
             ))}
+            <li className="nav__link--favorites">
+              <Link to="/favorites">
+                Favorites
+                <span className="length">{items.length}</span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
