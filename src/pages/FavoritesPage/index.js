@@ -27,7 +27,6 @@ const FavoritesPage = () => {
               <div className="section__left">
                 <p>{favorites?.market_cap_rank}</p>
                 <div className="section__left__title">
-                  <img src={favorites?.image} alt="" />
                   <h4>{favorites?.id}</h4>
                   <span>{favorites?.symbol}</span>
                 </div>

@@ -16,11 +16,11 @@ const favoritesSlice = createSlice({
       if (itemIndex >= 0) {
         state.coinItems[itemIndex].cartQuantity += 1;
       } else {
-        const tempProduct = {
+        const tempCoin = {
           ...action.payload,
           cartQuantity: 1,
         };
-        state.coinItems.push(tempProduct);
+        state.coinItems.push(tempCoin);
       }
       localStorage.setItem("coinItems", JSON.stringify(state.coinItems));
     },
