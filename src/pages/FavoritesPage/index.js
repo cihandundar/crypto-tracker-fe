@@ -18,7 +18,21 @@ const FavoritesPage = () => {
           <button style={{ all: "unset", display: "flex" }}>
             <AiOutlineStar />
           </button>
-
+          <button
+            style={{
+              width: "22px",
+              height: "22px",
+              background: "none",
+              border: "1px solid #000",
+              marginLeft: "10px",
+              cursor: "pointer",
+              borderRadius: "50%",
+            }}
+            className="remove"
+            onClick={() => dispatch(remove(favorites))}
+          >
+            x
+          </button>
           <Link
             style={{ display: "flex", width: "100%" }}
             to={`/coin/${favorites?.id}`}
@@ -64,21 +78,6 @@ const FavoritesPage = () => {
               </ul>
             </div>
           </Link>
-          <button
-            style={{
-              width: "22px",
-              height: "22px",
-              background: "none",
-              border: "1px solid #000",
-              marginLeft: "10px",
-              cursor: "pointer",
-              borderRadius: "50%",
-            }}
-            className="remove"
-            onClick={() => dispatch(remove(favorites))}
-          >
-            x
-          </button>
         </div>
       ))}
     </div>
