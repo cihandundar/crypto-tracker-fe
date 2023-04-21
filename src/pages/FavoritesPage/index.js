@@ -13,7 +13,7 @@ const FavoritesPage = () => {
       <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
         Tracker List
       </h2>
-      {items?.map((favorites) => (
+      {items?.coinItems?.map((favorites) => (
         <div key={favorites?.id} className="wrapper">
           <button style={{ all: "unset", display: "flex" }}>
             <AiOutlineStar />
@@ -76,7 +76,7 @@ const FavoritesPage = () => {
               borderRadius: "50%",
             }}
             className="remove"
-            onClick={() => dispatch(remove(favorites.id))}
+            onClick={() => dispatch(remove(favorites))}
           >
             x
           </button>
