@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCoin } from "redux/coinSlice";
-import { add } from "redux/favoritesSlice";
+import { addToFavorites } from "redux/favoritesSlice";
 const CoinList = () => {
   const items = useSelector((state) => state?.coin?.items);
 
@@ -12,9 +12,8 @@ const CoinList = () => {
     dispatch(fetchCoin());
   }, [dispatch]);
   const handleAdd = (item) => {
-    dispatch(add(item));
+    dispatch(addToFavorites(item));
   };
-  console.log(add);
   return (
     <section>
       {items?.map((item) => (
