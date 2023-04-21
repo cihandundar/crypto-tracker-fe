@@ -15,19 +15,7 @@ const FavoritesPage = () => {
       </h2>
       {items?.coinItems?.map((favorites) => (
         <div key={favorites?.id} className="wrapper">
-          <button style={{ all: "unset", display: "flex" }}>
-            <AiOutlineStar />
-          </button>
           <button
-            style={{
-              width: "22px",
-              height: "22px",
-              background: "none",
-              border: "1px solid #000",
-              marginLeft: "10px",
-              cursor: "pointer",
-              borderRadius: "50%",
-            }}
             className="remove"
             onClick={() => dispatch(remove(favorites))}
           >
