@@ -3,11 +3,12 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, CoinDetails } from "./pages";
 import FavoritesPage from "pages/FavoritesPage";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <BrowserRouter>
-      {/* <ToastContainer autoClose={2000} position="bottom-right" /> */}
+      <ToastContainer autoClose={2000} position="bottom-right" />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

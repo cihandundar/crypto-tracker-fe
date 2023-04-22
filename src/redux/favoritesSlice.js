@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
 const initialState = {
   coinItems: [],
   coinTotalQuantity: 0,
@@ -21,6 +21,7 @@ const favoritesSlice = createSlice({
           cartQuantity: 1,
         };
         state.coinItems.push(tempCoin);
+        toast.success(`${action.payload.name} added`);
       }
       localStorage.setItem("coinItems", JSON.stringify(state.coinItems));
     },
@@ -29,6 +30,7 @@ const favoritesSlice = createSlice({
         (coinItem) => coinItem.id !== action.payload.id
       );
       state.coinItems = nextcoinItems;
+      toast.info(`${action.payload.name} deleted`);
     },
   },
 });
