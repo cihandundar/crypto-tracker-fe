@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineStar } from "react-icons/ai";
+import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "redux/favoritesSlice";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const FavoritesPage = () => {
             className="remove"
             onClick={() => dispatch(remove(favorites))}
           >
-            x
+            <ImCross />
           </button>
           <Link
             style={{ display: "flex", width: "100%" }}
