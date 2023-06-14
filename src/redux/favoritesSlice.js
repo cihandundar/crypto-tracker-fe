@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+
 const initialState = {
   coinItems: [],
   coinTotalQuantity: 0,
+  selectedItems: [],
 };
 
 const favoritesSlice = createSlice({
@@ -30,6 +32,9 @@ const favoritesSlice = createSlice({
         (coinItem) => coinItem.id !== action.payload.id
       );
       state.coinItems = nextcoinItems;
+      state.selectedItems = state.selectedItems.filter(
+        (itemId) => itemId !== action.payload.id
+      ); // Eklenen satır
       toast.info(`${action.payload.name} deleted`);
     },
   },

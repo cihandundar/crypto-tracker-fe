@@ -1,19 +1,28 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineStar } from "react-icons/ai";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCoin } from "redux/coinSlice";
-import { addToFavorites } from "redux/favoritesSlice";
+import { addToFavorites, remove } from "redux/favoritesSlice";
+
 const CoinList = () => {
   const items = useSelector((state) => state?.coin?.items);
+  const favorites = useSelector((state) => state?.favorites?.coinItems);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCoin());
   }, [dispatch]);
+
   const handleAdd = (item) => {
-    dispatch(addToFavorites(item));
+    const isSelected = favorites.some((favorite) => favorite.id === item.id);
+    if (isSelected) {
+      dispatch(remove(item));
+    } else {
+      dispatch(addToFavorites(item));
+    }
   };
+
   return (
     <section>
       {items?.map((item) => (
@@ -22,7 +31,11 @@ const CoinList = () => {
             onClick={() => handleAdd(item)}
             style={{ all: "unset", display: "flex" }}
           >
-            <AiOutlineStar />
+            {favorites.some((favorite) => favorite.id === item.id) ? (
+              <AiFillStar />
+            ) : (
+              <AiOutlineStar />
+            )}
           </button>
 
           <Link
