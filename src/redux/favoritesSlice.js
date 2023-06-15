@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
+const storedCoinItems = localStorage.getItem("coinItems");
 const initialState = {
-  coinItems: [],
+  coinItems: storedCoinItems ? JSON.parse(storedCoinItems) : [],
   coinTotalQuantity: 0,
   selectedItems: [],
 };
@@ -34,7 +35,8 @@ const favoritesSlice = createSlice({
       state.coinItems = nextcoinItems;
       state.selectedItems = state.selectedItems.filter(
         (itemId) => itemId !== action.payload.id
-      ); // Eklenen satır
+      );
+      localStorage.setItem("coinItems", JSON.stringify(state.coinItems));
       toast.info(`${action.payload.name} deleted`);
     },
   },
