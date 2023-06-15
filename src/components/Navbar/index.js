@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "assets/images/logo.webp";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const favorites = useSelector((state) => state.favorites.coinItems);
+
   const links = [
     {
       id: 1,
@@ -49,7 +52,7 @@ const Navbar = () => {
               </li>
             ))}
             <li className="nav__link--favorites">
-              <Link to="/favorites">Favorites</Link>
+              <Link to="/favorites">Favorites: {favorites.length}</Link>
             </li>
           </ul>
         </nav>
